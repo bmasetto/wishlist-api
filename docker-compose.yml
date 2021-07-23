@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    container_name: customer_api_mongo
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'mongo_root'
+      MONGO_INITDB_ROOT_PASSWORD: '12345'
+      MONGO_INITDB_DATABASE: 'magalu'
+    volumes:
+      - ./resources/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  mongo-express:
+    container_name: customer_api_mongo_express
+    image: mongo-express
+    ports:
+      - 8082:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: 'mongo'
+      ME_CONFIG_MONGODB_PORT: '27017'
+      ME_CONFIG_MONGODB_AUTH_DATABASE: 'magalu'
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: 'false'
+      ME_CONFIG_MONGODB_AUTH_USERNAME: 'wishlist_api'
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: '12345'
+    volumes:
+      - ./resources/wait-for.sh:/wait-for.sh:ro
+    depends_on:
+      - mongo
+    entrypoint:
+      - /bin/sh
+      - /wait-for.sh
+      - mongo:27017
+      - --
+      - tini
+      - --
+      - /docker-entrypoint.sh
+
+  app:
+    container_name: customer_api_app
+    ports:
+      - 8081:8080
+    environment:
+      WISHLIST_API_USER: 'wishlist_api'
+      WISHLIST_API_PASSWORD: '$$2a$$04$$n.2152eQA1ERj7nLkzAveuyi/9WNnJZuxnyj4jjOzVuMXYyjmg39S'
+      MONGO_DATABASE: 'magalu'
+      MONGO_URI: 'mongodb://wishlist_api:12345@mongo:27017/?authSource=magalu'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./resources/wait-for.sh:/wait-for.sh:ro
+    depends_on:
+      - mongo
+    entrypoint:
+      - /bin/sh
+      - /wait-for.sh
+      - mongo:27017
+      - --
+      - java
+      - -jar
+      - /app.jar
