@@ -33,7 +33,7 @@ dependências entre os módulos descritos acima:
 
 ![Exemplo de comunicação entre os módulos](/assets/module_example_flow.png)
 
-Em relação às entradas (endpoints) da API disponibilizadas pelo Input, você poderá visualizá-los detalhadamente no 
+Em relação às entradas (endpoints) da API disponibilizadas pelo Input, você poderá visualizá-las detalhadamente no
 SwaggerUI após subir a aplicação no seu ambiente local.
 
 ## :computer: Rodando local
