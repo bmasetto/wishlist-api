@@ -1,6 +1,5 @@
 package com.company.wishlist.adapter.input.springrestcontroller;
 
-import com.company.wishlist.adapter.input.springrestcontroller.dto.CustomerDTO;
 import com.company.wishlist.adapter.input.springrestcontroller.mapper.CustomerInputMapper;
 import com.company.wishlist.core.customer.*;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import static com.company.wishlist.adapter.input.springrestcontroller.InputTestResources.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,7 +43,7 @@ class CustomerControllerTest {
         when(createCustomer.create(any(Customer.class)))
                 .thenReturn(john());
 
-        ResponseEntity<CustomerDTO> response = customerController.postCustomer(incomingJohnDTO());
+        var response = customerController.postCustomer(incomingJohnDTO());
 
         assertThat(response.getBody()).isEqualTo(johnDTO());
     }
@@ -55,7 +53,7 @@ class CustomerControllerTest {
         when(createCustomer.create(any(Customer.class)))
                 .thenReturn(john());
 
-        ResponseEntity<CustomerDTO> response = customerController.postCustomer(incomingJohnDTO());
+        var response = customerController.postCustomer(incomingJohnDTO());
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
     }
@@ -65,7 +63,7 @@ class CustomerControllerTest {
         when(getCustomer.getBy(johnId()))
                 .thenReturn(john());
 
-        ResponseEntity<CustomerDTO> response = customerController.getCustomer(john().id());
+        var response = customerController.getCustomer(john().id());
 
         assertThat(response.getBody()).isEqualTo(johnDTO());
     }
@@ -75,7 +73,7 @@ class CustomerControllerTest {
         when(getCustomer.getBy(johnId()))
                 .thenReturn(john());
 
-        ResponseEntity<CustomerDTO> response = customerController.getCustomer(john().id());
+        var response = customerController.getCustomer(john().id());
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
@@ -85,7 +83,7 @@ class CustomerControllerTest {
         when(updateCustomer.update(john()))
                 .thenReturn(john());
 
-        ResponseEntity<CustomerDTO> response = customerController.putCustomer(john().id(), incomingJohnDTO());
+        var response = customerController.putCustomer(john().id(), incomingJohnDTO());
 
         assertThat(response.getBody()).isEqualTo(johnDTO());
     }
@@ -95,7 +93,7 @@ class CustomerControllerTest {
         when(updateCustomer.update(john()))
                 .thenReturn(john());
 
-        ResponseEntity<CustomerDTO> response = customerController.putCustomer(john().id(), incomingJohnDTO());
+        var response = customerController.putCustomer(john().id(), incomingJohnDTO());
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
@@ -104,7 +102,7 @@ class CustomerControllerTest {
     void shouldReturnNothingWhenDeletingCustomer() {
         doNothing().when(deleteCustomer).delete(johnId());
 
-        ResponseEntity<?> response = customerController.deleteCustomer(john().id());
+        var response = customerController.deleteCustomer(john().id());
 
         assertThat(response.getBody()).isNull();
     }
@@ -113,7 +111,7 @@ class CustomerControllerTest {
     void shouldReturnStatusCodeWhenDeletingCustomer() {
         doNothing().when(deleteCustomer).delete(johnId());
 
-        ResponseEntity<?> response = customerController.deleteCustomer(john().id());
+        var response = customerController.deleteCustomer(john().id());
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
     }

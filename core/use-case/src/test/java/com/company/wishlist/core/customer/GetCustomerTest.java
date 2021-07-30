@@ -31,7 +31,7 @@ class GetCustomerTest {
         when(customerRepository.findBy(customerId))
                 .thenReturn(Optional.of(john()));
 
-        Customer customer = getCustomer.getBy(customerId);
+        var customer = getCustomer.getBy(customerId);
 
         assertThat(customer.getId()).isEqualTo(customerId);
     }

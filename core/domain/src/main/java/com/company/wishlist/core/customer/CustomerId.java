@@ -29,7 +29,7 @@ public class CustomerId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CustomerId that = (CustomerId) o;
+        var that = (CustomerId) o;
         return id.equals(that.id);
     }
 

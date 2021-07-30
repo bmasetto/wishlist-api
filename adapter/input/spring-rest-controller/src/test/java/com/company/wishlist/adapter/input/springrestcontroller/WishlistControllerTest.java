@@ -1,6 +1,5 @@
 package com.company.wishlist.adapter.input.springrestcontroller;
 
-import com.company.wishlist.adapter.input.springrestcontroller.dto.WishlistDTO;
 import com.company.wishlist.adapter.input.springrestcontroller.mapper.ProductInputMapper;
 import com.company.wishlist.adapter.input.springrestcontroller.mapper.WishListInputMapper;
 import com.company.wishlist.core.wishlist.AddProductsToWishList;
@@ -13,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -48,7 +46,7 @@ class WishlistControllerTest {
         when(addProductsToWishList.add(johnId(), List.of(tv().id())))
                 .thenReturn(johnWishlist());
 
-        ResponseEntity<WishlistDTO> response = wishlistController.postProductToWishlist(
+        var response = wishlistController.postProductToWishlist(
                 john().id(),
                 List.of(incomingTvDTO())
         );
@@ -62,7 +60,7 @@ class WishlistControllerTest {
         when(addProductsToWishList.add(johnId(), List.of(tv().id())))
                 .thenReturn(johnWishlist());
 
-        ResponseEntity<WishlistDTO> response = wishlistController.postProductToWishlist(
+        var response = wishlistController.postProductToWishlist(
                 john().id(),
                 List.of(incomingTvDTO())
         );
@@ -76,7 +74,7 @@ class WishlistControllerTest {
         when(getWishlist.getBy(johnId()))
                 .thenReturn(johnWishlist());
 
-        ResponseEntity<WishlistDTO> response = wishlistController.getWishlist(johnId().value());
+        var response = wishlistController.getWishlist(johnId().value());
 
         assertThat(response.getBody()).isEqualTo(johnWishlistDTO());
     }
@@ -87,7 +85,7 @@ class WishlistControllerTest {
         when(getWishlist.getBy(johnId()))
                 .thenReturn(johnWishlist());
 
-        ResponseEntity<WishlistDTO> response = wishlistController.getWishlist(johnId().value());
+        var response = wishlistController.getWishlist(johnId().value());
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
@@ -98,7 +96,7 @@ class WishlistControllerTest {
         when(deleteProductFromWishlist.delete(johnId(), List.of(cellphone().id())))
                 .thenReturn(johnWishlist());
 
-        ResponseEntity<WishlistDTO> response = wishlistController.deleteProductFromWishlist(
+        var response = wishlistController.deleteProductFromWishlist(
                 johnId().value(),
                 List.of(incomingCellphoneDTO())
         );
@@ -112,7 +110,7 @@ class WishlistControllerTest {
         when(deleteProductFromWishlist.delete(johnId(), List.of(cellphone().id())))
                 .thenReturn(johnWishlist());
 
-        ResponseEntity<WishlistDTO> response = wishlistController.deleteProductFromWishlist(
+        var response = wishlistController.deleteProductFromWishlist(
                 johnId().value(),
                 List.of(incomingCellphoneDTO())
         );

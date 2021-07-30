@@ -71,7 +71,7 @@ public class Customer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
+        var customer = (Customer) o;
         return id.equals(customer.id);
     }
 

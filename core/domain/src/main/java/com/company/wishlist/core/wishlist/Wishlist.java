@@ -75,7 +75,7 @@ public class Wishlist {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Wishlist wishlist = (Wishlist) o;
+        var wishlist = (Wishlist) o;
         return customer.equals(wishlist.customer);
     }
 

@@ -66,7 +66,7 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        var product = (Product) o;
         return id.equals(product.id);
     }
 

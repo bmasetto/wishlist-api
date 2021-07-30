@@ -29,7 +29,7 @@ public class ProductId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductId productId = (ProductId) o;
+        var productId = (ProductId) o;
         return id.equals(productId.id);
     }
 
