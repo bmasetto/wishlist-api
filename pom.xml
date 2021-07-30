@@ -5,29 +5,37 @@
 
     <packaging>pom</packaging>
 
-    <groupId>br.com.company</groupId>
+    <groupId>com.company</groupId>
     <artifactId>wishlist-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>wishlist-api</name>
+    <name>Wishlist API</name>
     <description>This API manages customers and their wishlist.</description>
 
     <modules>
         <module>core/domain</module>
         <module>core/use-case</module>
-        <module>adapter/output/spring-mongo-repository</module>
+        <module>adapter/output/jpa-postgres-repository</module>
         <module>adapter/input/spring-rest-controller</module>
         <module>auth/spring-auth</module>
         <module>app/spring-app</module>
+        <module>adapter/output/product-rest-client</module>
+        <module>adapter/output/redis-cache</module>
     </modules>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.5.2</spring-boot.version>
-        <spring-security.version>5.5.1</spring-security.version>
         <lombok.version>1.18.20</lombok.version>
+        <postgresql.version>42.2.23</postgresql.version>
+        <spring-boot.version>2.5.3</spring-boot.version>
+        <springdoc-openapi-ui.version>1.5.10</springdoc-openapi-ui.version>
+        <junit-jupiter.version>5.7.2</junit-jupiter.version>
+        <assertj-core.version>3.20.2</assertj-core.version>
+        <mockito.version>3.11.2</mockito.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -44,7 +52,17 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>spring-mongo-repository</artifactId>
+                <artifactId>jpa-postgres-repository</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>product-rest-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>redis-cache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -57,6 +75,25 @@
                 <artifactId>spring-auth</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -64,11 +101,39 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- Tests dependencies -->
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -78,4 +143,17 @@
             <artifactId>spring-context</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

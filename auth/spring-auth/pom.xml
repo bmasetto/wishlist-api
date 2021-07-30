@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>br.com.company</groupId>
+        <groupId>com.company</groupId>
         <artifactId>wishlist-api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
@@ -14,7 +14,7 @@
 
     <artifactId>spring-auth</artifactId>
 
-    <name>spring-auth</name>
+    <name>Spring auth</name>
     <description>
         This module contains the dependencies and configurations to handle the application authentication.
     </description>

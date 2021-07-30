@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+
+  wishlist_api_app:
+    container_name: wishlist_api_app
+    ports:
+      - '8000:8080'
+    environment:
+      AUTH_API_USER: wishlist_api
+      AUTH_API_PASSWORD: $$2a$$04$$n.2152eQA1ERj7nLkzAveuyi/9WNnJZuxnyj4jjOzVuMXYyjmg39S
+      POSTGRES_URL: jdbc:postgresql://wishlist_postgres:5432/wishlist
+      POSTGRES_USER: wishlist
+      POSTGRES_PASSWORD: 12345
+      PRODUCT_API_URL: https://challenge-api.luizalabs.com/api/
+      REDIS_HOST: wishlist_redis
+      REDIS_PORT: 6379
+      REDIS_DATABASE: 0
+      REDIS_PASSWORD: 12345
+      LOGGING_LEVEL: DEBUG
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    networks:
+      - stack-network
+
+networks:
+  stack-network:
+    driver: bridge

@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>br.com.company</groupId>
+        <groupId>com.company</groupId>
         <artifactId>wishlist-api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
@@ -14,7 +14,7 @@
 
     <artifactId>spring-app</artifactId>
 
-    <name>sprint-app</name>
+    <name>Spring app</name>
     <description>
         This module contains the resources, dependencies and configurations related to Spring Framework to build de API
         application.
@@ -23,11 +23,15 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>use-case</artifactId>
+            <artifactId>jpa-postgres-repository</artifactId>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>spring-mongo-repository</artifactId>
+            <artifactId>product-rest-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>redis-cache</artifactId>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -41,6 +45,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,7 +59,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>br.com.company.wishlist.app.springapp.WishlistApiApplication</mainClass>
+                    <mainClass>com.company.wishlist.app.springapp.WishlistApiApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
