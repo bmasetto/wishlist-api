@@ -12,8 +12,8 @@ class CustomerTest {
     @Test
     void shouldReturnCustomerIdWhenCustomerIsCreated() {
         var customerId = CustomerId.from(1L);
-        var email = "test@gmail.com";
-        var name = "Teste";
+        var email = "john@email.com";
+        var name = "John";
 
         var customer = Customer.from(customerId, email, name);
 
@@ -23,8 +23,8 @@ class CustomerTest {
     @Test
     void shouldReturnEmailWhenCustomerIsCreated() {
         var customerId = CustomerId.from(1L);
-        var email = "test@email.com";
-        var name = "Teste";
+        var email = "john@email.com";
+        var name = "John";
 
         var customer = Customer.from(customerId, email, name);
 
@@ -34,19 +34,19 @@ class CustomerTest {
     @Test
     void shouldReturnNameWhenCustomerIsCreated() {
         var customerId = CustomerId.from(1L);
-        var email = "test@email.com";
-        var name = "Teste";
+        var email = "john@email.com";
+        var name = "John";
 
         var customer = Customer.from(customerId, email, name);
 
-        assertThat(customer.name()).isEqualTo("Teste");
+        assertThat(customer.name()).isEqualTo(name);
     }
 
     @Test
     void shouldThrowErrorWhenCustomerIsCreatedWithNullCustomerId() {
         CustomerId customerId = null;
-        var email = "test@email.com";
-        var name = "Teste";
+        var email = "john@email.com";
+        var name = "John";
 
         assertThatThrownBy(() -> Customer.from(customerId, email, name))
                 .isInstanceOf(InvalidDataException.class)
@@ -57,7 +57,7 @@ class CustomerTest {
     void shouldThrowErrorWhenCustomerIsCreatedWithInvalidEmail() {
         var customerId = CustomerId.from(1L);
         var email = "invalid-email";
-        var name = "Teste";
+        var name = "John";
 
         assertThatThrownBy(() -> Customer.from(customerId, email, name))
                 .isInstanceOf(InvalidDataException.class)
@@ -67,7 +67,7 @@ class CustomerTest {
     @Test
     void shouldThrowErrorWhenCustomerIsCreatedWithNullName() {
         var customerId = CustomerId.from(1L);
-        var email = "test@email.com";
+        var email = "john@email.com";
         String name = null;
 
         assertThatThrownBy(() -> Customer.from(customerId, email, name))
@@ -78,7 +78,7 @@ class CustomerTest {
     @Test
     void shouldThrowErrorWhenCustomerIsCreatedWithEmptyName() {
         var customerId = CustomerId.from(1L);
-        var email = "test@email.com";
+        var email = "john@email.com";
         var name = "";
 
         assertThatThrownBy(() -> Customer.from(customerId, email, name))
