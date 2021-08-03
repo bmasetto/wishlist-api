@@ -22,5 +22,5 @@ public class ProductDTO {
     private Double price;
 
     @Schema
-    private Double reviewScore; //TODO Fix default valeu 0.0
+    private Double reviewScore;
 }

@@ -191,6 +191,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- TODO Add test phase to git hook pre-commit -->
         </plugins>
     </build>
 </project>
