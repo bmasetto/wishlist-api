@@ -15,12 +15,12 @@
     <modules>
         <module>core/domain</module>
         <module>core/use-case</module>
-        <module>adapter/output/jpa-postgres-repository</module> <!-- TODO Sort modules -->
         <module>adapter/input/spring-rest-controller</module>
-        <module>auth/spring-auth</module>
-        <module>app/spring-app</module>
+        <module>adapter/output/jpa-postgres-repository</module>
         <module>adapter/output/product-rest-client</module>
         <module>adapter/output/redis-cache</module>
+        <module>app/spring-app</module>
+        <module>auth/spring-auth</module>
     </modules>
 
     <properties>
