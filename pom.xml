@@ -150,6 +150,14 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>${maven-checkstyle-plugin.version}</version>
@@ -164,14 +172,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId> <!-- TODO Try to add in plugin management -->
-                <version>${maven-surefire-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId> <!-- TODO Try to add in plugin management -->
-                <version>${maven-failsafe-plugin.version}</version>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
