@@ -15,7 +15,7 @@
     <modules>
         <module>core/domain</module>
         <module>core/use-case</module>
-        <module>adapter/output/jpa-postgres-repository</module>
+        <module>adapter/output/jpa-postgres-repository</module> <!-- TODO Sort modules -->
         <module>adapter/input/spring-rest-controller</module>
         <module>auth/spring-auth</module>
         <module>app/spring-app</module>
@@ -34,8 +34,10 @@
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
         <assertj-core.version>3.20.2</assertj-core.version>
         <mockito.version>3.11.2</mockito.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+        <checkstyle.version>8.45</checkstyle.version>
     </properties>
 
     <dependencyManagement>
@@ -145,14 +147,49 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven-checkstyle-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${checkstyle.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId> <!-- TODO Try to add in plugin management -->
                 <version>${maven-surefire-plugin.version}</version>
             </plugin>
             <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
+                <artifactId>maven-failsafe-plugin</artifactId> <!-- TODO Try to add in plugin management -->
                 <version>${maven-failsafe-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

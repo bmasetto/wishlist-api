@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EntityScan("com.company.wishlist.adapter.output.jpapostgresrepository.entity")
-public class JPAPostgresRepositoryConfig {
+public class JPAPostgresRepositoryConfig { //TODO Add statement_timeout and lock_timeout config
 }
