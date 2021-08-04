@@ -38,6 +38,7 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
         <checkstyle.version>8.45</checkstyle.version>
+        <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -169,6 +170,11 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco-maven-plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -187,6 +193,38 @@
                         <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>com/company/wishlist/core/**/*</include>
+                        <include>com/company/wishlist/adapter/input/springrestcontroller/*</include>
+                        <include>com/company/wishlist/adapter/input/springrestcontroller/mapper/*</include>
+                        <include>com/company/wishlist/adapter/output/jpapostgresrepository/mapper/*</include>
+                        <include>com/company/wishlist/adapter/output/productrestclient/mapper/*</include>
+                        <include>com/company/wishlist/adapter/output/rediscache/*</include>
+                        <include>com/company/wishlist/adapter/output/rediscache/mapper/*</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*Config.*</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-code-coverage-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
