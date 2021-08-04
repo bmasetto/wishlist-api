@@ -1,5 +1,8 @@
 # Wishlist API
 
+[![Build](https://github.com/bmasetto/wishlist-api/actions/workflows/build.yml/badge.svg)](https://github.com/bmasetto/wishlist-api/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/bmasetto/wishlist-api/branch/main/graph/badge.svg?token=GCNF6X321R)](https://codecov.io/gh/bmasetto/wishlist-api)
+
 Essa aplicação consiste em uma API em Java através da qual é possível gerenciar os clientes de uma companhia, assim 
 como os seus produtos desejados.
 
