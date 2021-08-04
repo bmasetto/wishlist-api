@@ -17,5 +17,5 @@ import org.springframework.web.bind.annotation.RestController;
         type = SecuritySchemeType.HTTP,
         scheme = "basic"
 )
-public class OpenAPIConfiguration {
+public class OpenAPIConfig {
 }
