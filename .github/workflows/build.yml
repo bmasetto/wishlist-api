@@ -1,0 +1,31 @@
+name: Build
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 16
+        uses: actions/setup-java@v2
+        with:
+          java-version: 16
+          distribution: adopt
+
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Build with Maven
+        run: ./mvnw install
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./core/domain/target/site/jacoco/jacoco.xml,./core/use-case/target/site/jacoco/jacoco.xml,./adapter/input/spring-rest-controller/target/site/jacoco/jacoco.xml,./adapter/output/jpa-postgres-repository/target/site/jacoco/jacoco.xml,./adapter/output/product-rest-client/target/site/jacoco/jacoco.xml,./adapter/output/redis-cache/target/site/jacoco/jacoco.xml
