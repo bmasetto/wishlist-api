@@ -14,8 +14,8 @@ public class ProductId {
 
     private ProductId(String id) {
 
-        if (id != null && id.trim().isEmpty()) {
-            throw new InvalidDataException("Id should not be empty");
+        if (id == null || id.trim().isEmpty()) {
+            throw new InvalidDataException("Product id should not be null or blank");
         }
 
         this.id = id;
