@@ -16,7 +16,6 @@
         <property name="ignorePattern" value="^package.*|^import.*"/>
     </module>
 
-    <!-- TODO Check implicit variable usage -->
     <!-- TODO Avoid star import and static import except for native Java functions and test resources -->
     <!-- TODO Check alphabetical import order -->
     <!-- TODO Check final parameters -->
