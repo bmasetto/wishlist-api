@@ -9,15 +9,15 @@ public class CustomerId {
     private final Long id;
 
     public static CustomerId from(Long id) {
-        return new CustomerId(id);
-    }
-
-    private CustomerId(Long id) {
 
         if (id == null) {
             throw new InvalidDataException("Customer id should not be null");
         }
 
+        return new CustomerId(id);
+    }
+
+    private CustomerId(Long id) {
         this.id = id;
     }
 

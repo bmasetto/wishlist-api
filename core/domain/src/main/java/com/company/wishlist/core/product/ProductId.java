@@ -9,15 +9,15 @@ public class ProductId {
     private final String id;
 
     public static ProductId from(String id) {
-        return new ProductId(id);
-    }
-
-    private ProductId(String id) {
 
         if (id == null || id.trim().isEmpty()) {
             throw new InvalidDataException("Product id should not be null or blank");
         }
 
+        return new ProductId(id);
+    }
+
+    private ProductId(String id) {
         this.id = id;
     }
 
