@@ -20,8 +20,7 @@ class WishlistOutputMapperTest {
                 .toEntity(johnWishlist(), johnEntity())
                 .forEach(wishlistEntity ->
                         assertThat(wishlistEntity.getExternalProductId())
-                                .isEqualTo(johnWishlistEntity().getExternalProductId())
-                );
+                                .isEqualTo(johnWishlistEntity().getExternalProductId()));
     }
 
 }
