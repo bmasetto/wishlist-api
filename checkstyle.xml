@@ -19,7 +19,6 @@
     <module name="NewlineAtEndOfFile"/>
 
     <!-- TODO Avoid star import and static import except for native Java functions and test resources -->
-    <!-- TODO Check alphabetical import order -->
     <module name="TreeWalker">
 
         <!-- Annotations -->
@@ -58,10 +57,11 @@
 
         <!-- Imports -->
         <module name="CustomImportOrder">
-            <property name="separateLineBetweenGroups" value="true"/>
             <property name="customImportOrderRules"
-                      value="THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS###STANDARD_JAVA_PACKAGE###STATIC"/>
-            <property name="tokens" value="IMPORT, STATIC_IMPORT, PACKAGE_DEF"/>
+                      value="SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE###STANDARD_JAVA_PACKAGE###STATIC"/>
+            <property name="specialImportsRegExp" value="^com\.company\."/>
+            <property name="sortImportsInGroupAlphabetically" value="true"/>
+            <property name="separateLineBetweenGroups" value="true"/>
         </module>
         <module name="UnusedImports"/>
 
