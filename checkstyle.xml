@@ -16,10 +16,11 @@
         <property name="ignorePattern" value="^package.*|^import.*"/>
     </module>
 
+    <module name="NewlineAtEndOfFile"/>
+
     <!-- TODO Avoid star import and static import except for native Java functions and test resources -->
     <!-- TODO Check alphabetical import order -->
     <!-- TODO Check final parameters -->
-    <!-- TODO Check new line in the end of file -->
     <module name="TreeWalker">
 
         <!-- Annotations -->
