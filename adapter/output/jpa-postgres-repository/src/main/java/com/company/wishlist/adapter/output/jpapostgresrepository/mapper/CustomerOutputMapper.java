@@ -3,6 +3,7 @@ package com.company.wishlist.adapter.output.jpapostgresrepository.mapper;
 import com.company.wishlist.adapter.output.jpapostgresrepository.entity.CustomerEntity;
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.customer.CustomerId;
+
 import org.springframework.stereotype.Component;
 
 @Component

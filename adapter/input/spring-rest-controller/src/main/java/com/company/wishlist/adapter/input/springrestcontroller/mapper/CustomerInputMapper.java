@@ -4,6 +4,7 @@ import com.company.wishlist.adapter.input.springrestcontroller.dto.CustomerDTO;
 import com.company.wishlist.adapter.input.springrestcontroller.dto.IncomingCustomerDTO;
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.customer.CustomerId;
+
 import org.springframework.stereotype.Component;
 
 @Component

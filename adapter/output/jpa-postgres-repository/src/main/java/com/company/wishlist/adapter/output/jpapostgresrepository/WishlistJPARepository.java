@@ -8,15 +8,16 @@ import com.company.wishlist.core.product.ProductId;
 import com.company.wishlist.core.repository.ProductRepository;
 import com.company.wishlist.core.repository.WishlistRepository;
 import com.company.wishlist.core.wishlist.Wishlist;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;

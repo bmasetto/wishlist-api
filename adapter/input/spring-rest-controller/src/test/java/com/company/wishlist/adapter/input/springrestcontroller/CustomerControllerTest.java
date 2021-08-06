@@ -2,6 +2,7 @@ package com.company.wishlist.adapter.input.springrestcontroller;
 
 import com.company.wishlist.adapter.input.springrestcontroller.mapper.CustomerInputMapper;
 import com.company.wishlist.core.customer.*;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

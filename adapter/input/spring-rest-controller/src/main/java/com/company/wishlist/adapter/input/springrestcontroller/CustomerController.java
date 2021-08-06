@@ -5,6 +5,7 @@ import com.company.wishlist.adapter.input.springrestcontroller.dto.ErrorDTO;
 import com.company.wishlist.adapter.input.springrestcontroller.dto.IncomingCustomerDTO;
 import com.company.wishlist.adapter.input.springrestcontroller.mapper.CustomerInputMapper;
 import com.company.wishlist.core.customer.*;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

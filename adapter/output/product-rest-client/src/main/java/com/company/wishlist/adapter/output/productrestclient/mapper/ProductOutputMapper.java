@@ -3,6 +3,7 @@ package com.company.wishlist.adapter.output.productrestclient.mapper;
 import com.company.wishlist.adapter.output.productrestclient.dto.ProductDTO;
 import com.company.wishlist.core.product.Product;
 import com.company.wishlist.core.product.ProductId;
+
 import org.springframework.stereotype.Component;
 
 @Component

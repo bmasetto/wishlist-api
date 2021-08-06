@@ -5,14 +5,15 @@ import com.company.wishlist.adapter.output.jpapostgresrepository.mapper.Customer
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.customer.CustomerId;
 import com.company.wishlist.core.repository.CustomerRepository;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Component
 @Primary

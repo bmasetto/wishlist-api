@@ -8,6 +8,7 @@ import com.company.wishlist.core.product.ProductId;
 import com.company.wishlist.core.repository.CustomerRepository;
 import com.company.wishlist.core.repository.ProductRepository;
 import com.company.wishlist.core.repository.WishlistRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

@@ -5,6 +5,7 @@ import com.company.wishlist.adapter.input.springrestcontroller.mapper.WishListIn
 import com.company.wishlist.core.wishlist.AddProductsToWishList;
 import com.company.wishlist.core.wishlist.DeleteProductsFromWishList;
 import com.company.wishlist.core.wishlist.GetWishlist;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

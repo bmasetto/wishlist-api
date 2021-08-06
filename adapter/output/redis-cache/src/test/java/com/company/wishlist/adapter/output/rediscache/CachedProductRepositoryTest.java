@@ -3,6 +3,7 @@ package com.company.wishlist.adapter.output.rediscache;
 import com.company.wishlist.adapter.output.rediscache.mapper.CachedProductMapper;
 import com.company.wishlist.adapter.output.rediscache.repository.ProductRedisRepository;
 import com.company.wishlist.core.repository.ProductRepository;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

@@ -1,6 +1,7 @@
 package com.company.wishlist.core.product;
 
 import com.company.wishlist.core.exception.InvalidDataException;
+
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

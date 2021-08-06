@@ -6,6 +6,7 @@ import com.company.wishlist.adapter.output.rediscache.repository.ProductRedisRep
 import com.company.wishlist.core.product.Product;
 import com.company.wishlist.core.product.ProductId;
 import com.company.wishlist.core.repository.ProductRepository;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

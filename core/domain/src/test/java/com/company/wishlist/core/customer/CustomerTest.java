@@ -1,6 +1,7 @@
 package com.company.wishlist.core.customer;
 
 import com.company.wishlist.core.exception.InvalidDataException;
+
 import org.junit.jupiter.api.Test;
 
 import static com.company.wishlist.core.DomainTestResources.john;

@@ -6,6 +6,7 @@ import com.company.wishlist.adapter.output.rediscache.repository.WishlistRedisRe
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.repository.WishlistRepository;
 import com.company.wishlist.core.wishlist.Wishlist;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

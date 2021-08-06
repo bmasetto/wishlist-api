@@ -3,6 +3,7 @@ package com.company.wishlist.core.wishlist;
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.exception.InvalidDataException;
 import com.company.wishlist.core.product.Product;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;

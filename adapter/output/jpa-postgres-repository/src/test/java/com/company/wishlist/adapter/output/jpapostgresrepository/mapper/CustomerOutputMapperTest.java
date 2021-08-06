@@ -2,7 +2,8 @@ package com.company.wishlist.adapter.output.jpapostgresrepository.mapper;
 
 import org.junit.jupiter.api.Test;
 
-import static com.company.wishlist.adapter.output.jpapostgresrepository.mapper.JPAOutputTestResources.*;
+import static com.company.wishlist.adapter.output.jpapostgresrepository.mapper.JPAOutputTestResources.john;
+import static com.company.wishlist.adapter.output.jpapostgresrepository.mapper.JPAOutputTestResources.johnEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CustomerOutputMapperTest {

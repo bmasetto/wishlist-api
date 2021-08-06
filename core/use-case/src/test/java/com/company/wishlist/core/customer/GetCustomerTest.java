@@ -2,6 +2,7 @@ package com.company.wishlist.core.customer;
 
 import com.company.wishlist.core.exception.NotFoundException;
 import com.company.wishlist.core.repository.CustomerRepository;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

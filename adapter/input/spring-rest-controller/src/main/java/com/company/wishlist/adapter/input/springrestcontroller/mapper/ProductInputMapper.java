@@ -4,6 +4,7 @@ import com.company.wishlist.adapter.input.springrestcontroller.dto.IncomingProdu
 import com.company.wishlist.adapter.input.springrestcontroller.dto.ProductDTO;
 import com.company.wishlist.core.product.Product;
 import com.company.wishlist.core.product.ProductId;
+
 import org.springframework.stereotype.Component;
 
 import java.util.List;

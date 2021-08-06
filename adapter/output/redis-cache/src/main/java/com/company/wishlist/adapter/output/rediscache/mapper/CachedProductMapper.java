@@ -3,6 +3,7 @@ package com.company.wishlist.adapter.output.rediscache.mapper;
 import com.company.wishlist.adapter.output.rediscache.entity.CachedProductEntity;
 import com.company.wishlist.core.product.Product;
 import com.company.wishlist.core.product.ProductId;
+
 import org.springframework.stereotype.Component;
 
 @Component

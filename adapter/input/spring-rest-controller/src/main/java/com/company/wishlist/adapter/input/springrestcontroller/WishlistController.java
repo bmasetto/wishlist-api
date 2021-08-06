@@ -9,6 +9,7 @@ import com.company.wishlist.core.customer.CustomerId;
 import com.company.wishlist.core.wishlist.AddProductsToWishList;
 import com.company.wishlist.core.wishlist.DeleteProductsFromWishList;
 import com.company.wishlist.core.wishlist.GetWishlist;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

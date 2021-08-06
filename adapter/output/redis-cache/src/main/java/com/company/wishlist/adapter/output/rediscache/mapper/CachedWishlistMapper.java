@@ -2,6 +2,7 @@ package com.company.wishlist.adapter.output.rediscache.mapper;
 
 import com.company.wishlist.adapter.output.rediscache.entity.CachedWishlistEntity;
 import com.company.wishlist.core.wishlist.Wishlist;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
