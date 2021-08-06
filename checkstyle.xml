@@ -18,7 +18,6 @@
 
     <module name="NewlineAtEndOfFile"/>
 
-    <!-- TODO Avoid star import and static import except for native Java functions and test resources -->
     <module name="TreeWalker">
 
         <!-- Annotations -->
@@ -56,6 +55,32 @@
         <!-- Nothing -->
 
         <!-- Imports -->
+        <module name="AvoidStarImport">
+            <property name="excludes" value="
+                java.util.stream.Collectors.*,
+                org.assertj.core.api.Assertions.*,
+                org.mockito.Mockito.*,
+                 org.mockito.ArgumentMatchers.*,
+                com.company.wishlist.core.DomainTestResources.*,
+                com.company.wishlist.core.customer.UseCaseTestResources.*,
+                com.company.wishlist.adapter.input.springrestcontroller.InputTestResources.*,
+                com.company.wishlist.adapter.output.jpapostgresrepository.JPAOutputTestResources.*,
+                com.company.wishlist.adapter.output.productrestclient.RestClientOutputTestResources.*,
+                com.company.wishlist.adapter.output.rediscache.RedisOutputTestResources.*"/>
+        </module>
+        <module name="AvoidStaticImport">
+            <property name="excludes" value="
+                java.util.stream.Collectors.*,
+                org.assertj.core.api.Assertions.*,
+                org.mockito.Mockito.*,
+                 org.mockito.ArgumentMatchers.*,
+                com.company.wishlist.core.DomainTestResources.*,
+                com.company.wishlist.core.customer.UseCaseTestResources.*,
+                com.company.wishlist.adapter.input.springrestcontroller.InputTestResources.*,
+                com.company.wishlist.adapter.output.jpapostgresrepository.JPAOutputTestResources.*,
+                com.company.wishlist.adapter.output.productrestclient.RestClientOutputTestResources.*,
+                com.company.wishlist.adapter.output.rediscache.RedisOutputTestResources.*"/>
+        </module>
         <module name="CustomImportOrder">
             <property name="customImportOrderRules"
                       value="SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE###STANDARD_JAVA_PACKAGE###STATIC"/>
