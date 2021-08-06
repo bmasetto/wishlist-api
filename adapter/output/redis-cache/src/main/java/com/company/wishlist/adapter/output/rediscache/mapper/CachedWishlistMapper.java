@@ -14,12 +14,14 @@ public class CachedWishlistMapper {
     private final CachedCustomerMapper cachedCustomerMapper;
 
     @Autowired
-    public CachedWishlistMapper(CachedProductMapper cachedProductMapper, CachedCustomerMapper cachedCustomerMapper) {
+    public CachedWishlistMapper(
+            final CachedProductMapper cachedProductMapper,
+            final CachedCustomerMapper cachedCustomerMapper) {
         this.cachedProductMapper = cachedProductMapper;
         this.cachedCustomerMapper = cachedCustomerMapper;
     }
 
-    public Wishlist toDomain(CachedWishlistEntity cachedWishlistEntity) {
+    public Wishlist toDomain(final CachedWishlistEntity cachedWishlistEntity) {
 
         var customer = cachedCustomerMapper.toDomain(cachedWishlistEntity.getCustomer());
 
@@ -30,7 +32,7 @@ public class CachedWishlistMapper {
         return Wishlist.from(customer, products);
     }
 
-    public CachedWishlistEntity toEntity(Wishlist wishlist) {
+    public CachedWishlistEntity toEntity(final Wishlist wishlist) {
 
         var cachedProductEntities = wishlist.products().stream()
                 .map(product -> cachedProductMapper.toEntity(product.id(), product))

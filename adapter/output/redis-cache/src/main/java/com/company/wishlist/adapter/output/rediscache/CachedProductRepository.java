@@ -26,15 +26,17 @@ public class CachedProductRepository implements ProductRepository {
     private final ProductRedisRepository productRedisRepository;
 
     @Autowired
-    CachedProductRepository(ProductRepository productRepository, CachedProductMapper cachedProductMapper,
-                            ProductRedisRepository productRedisRepository) {
+    CachedProductRepository(
+            final ProductRepository productRepository,
+            final CachedProductMapper cachedProductMapper,
+            final ProductRedisRepository productRedisRepository) {
         this.productRepository = productRepository;
         this.cachedProductMapper = cachedProductMapper;
         this.productRedisRepository = productRedisRepository;
     }
 
     @Override
-    public Optional<Product> findBy(ProductId productId) {
+    public Optional<Product> findBy(final ProductId productId) {
         log.debug("Finding product in cached repository: " + productId.value());
 
         var cachedProductEntity = productRedisRepository.findById(productId.value())
@@ -43,7 +45,7 @@ public class CachedProductRepository implements ProductRepository {
         return Optional.ofNullable(cachedProductEntity).map(cachedProductMapper::toDomain);
     }
 
-    private Supplier<CachedProductEntity> fromRepositoryAndSaveInCache(ProductId productId) {
+    private Supplier<CachedProductEntity> fromRepositoryAndSaveInCache(final ProductId productId) {
         return () -> {
             log.info("Product not found in cached repository: " + productId.value());
 

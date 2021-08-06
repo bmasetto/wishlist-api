@@ -10,7 +10,7 @@ public class Customer {
     private CustomerEmail email;
     private CustomerName name;
 
-    public static Customer from(CustomerId customerId, String email, String name) {
+    public static Customer from(final CustomerId customerId, final String email, final String name) {
 
         if (customerId == null) {
             throw new InvalidDataException("Customer id should not be blank");
@@ -35,7 +35,7 @@ public class Customer {
         return getName().getValue();
     }
 
-    public void update(CustomerEmail email, CustomerName name) {
+    public void update(final CustomerEmail email, final CustomerName name) {
 
         if (email == null) {
             throw new InvalidDataException("Email should not be null");
@@ -49,7 +49,7 @@ public class Customer {
         this.name = name;
     }
 
-    private Customer(CustomerId id, CustomerEmail email, CustomerName name) {
+    private Customer(final CustomerId id, final CustomerEmail email, final CustomerName name) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -68,7 +68,7 @@ public class Customer {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         var customer = (Customer) o;

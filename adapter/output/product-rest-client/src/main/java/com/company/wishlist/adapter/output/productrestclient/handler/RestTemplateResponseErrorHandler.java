@@ -17,7 +17,7 @@ public class RestTemplateResponseErrorHandler extends DefaultResponseErrorHandle
     );
 
     @Override
-    public boolean hasError(ClientHttpResponse clientHttpResponse) throws IOException {
+    public boolean hasError(final ClientHttpResponse clientHttpResponse) throws IOException {
         if (ACCEPTED_HTTP_ERRORS.contains(clientHttpResponse.getStatusCode())) {
             return false;
         }
@@ -27,7 +27,7 @@ public class RestTemplateResponseErrorHandler extends DefaultResponseErrorHandle
     }
 
     @Override
-    public void handleError(ClientHttpResponse clientHttpResponse) throws IOException {
+    public void handleError(final ClientHttpResponse clientHttpResponse) throws IOException {
         if (ACCEPTED_HTTP_ERRORS.contains(clientHttpResponse.getStatusCode())) {
             return;
         }

@@ -12,11 +12,11 @@ public class DeleteCustomer {
     private final CustomerRepository customerRepository;
 
     @Autowired
-    DeleteCustomer(@Qualifier("cached") CustomerRepository customerRepository) {
+    DeleteCustomer(@Qualifier("cached") final CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
-    public void delete(CustomerId customerId) {
+    public void delete(final CustomerId customerId) {
 
         var customer = customerRepository.findBy(customerId)
                 .orElseThrow(() -> new NotFoundException("Customer not found: " + customerId.value()));

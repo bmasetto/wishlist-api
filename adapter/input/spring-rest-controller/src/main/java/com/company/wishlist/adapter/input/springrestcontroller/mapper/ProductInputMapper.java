@@ -14,13 +14,13 @@ import static java.util.stream.Collectors.toList;
 @Component
 public class ProductInputMapper {
 
-    public List<ProductId> toDomain(List<IncomingProductDTO> productsToBeDeleted) {
+    public List<ProductId> toDomain(final List<IncomingProductDTO> productsToBeDeleted) {
         return productsToBeDeleted.stream()
                 .map(productToBeDeleted -> ProductId.from(productToBeDeleted.getId()))
                 .collect(toList());
     }
 
-    public List<ProductDTO> toDTO(Set<Product> products) {
+    public List<ProductDTO> toDTO(final Set<Product> products) {
         return products.stream()
                 .map(product -> ProductDTO.builder()
                         .id(product.id().value())

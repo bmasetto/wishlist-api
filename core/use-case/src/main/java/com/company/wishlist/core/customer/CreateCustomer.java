@@ -11,11 +11,11 @@ public class CreateCustomer {
     private final CustomerRepository customerRepository;
 
     @Autowired
-    CreateCustomer(CustomerRepository customerRepository) {
+    CreateCustomer(final CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
-    public Customer create(Customer incomingCustomer) {
+    public Customer create(final Customer incomingCustomer) {
 
         customerRepository.findByEmail(incomingCustomer.email())
                 .ifPresent(alreadyExistedCustomer -> {

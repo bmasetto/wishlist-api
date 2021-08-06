@@ -14,11 +14,11 @@ public class GetCustomer {
     private final CustomerRepository customerRepository;
 
     @Autowired
-    GetCustomer(@Qualifier("cached") CustomerRepository customerRepository) {
+    GetCustomer(@Qualifier("cached") final CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
-    public Customer getBy(CustomerId customerId) {
+    public Customer getBy(final CustomerId customerId) {
         return customerRepository.findBy(customerId)
                 .orElseThrow(() -> new NotFoundException("Customer not found: " + customerId.value()));
     }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductOutputMapper {
 
-    public Product toDomain(ProductDTO productDTO) {
+    public Product toDomain(final ProductDTO productDTO) {
         return Product.from(
                 ProductId.from(productDTO.getId()),
                 productDTO.getTitle(),

@@ -26,7 +26,7 @@ public class SpringAuthConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationEntryPoint authEntryPoint;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/api-docs/**").permitAll()
@@ -40,7 +40,7 @@ public class SpringAuthConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser(user)
                 .password(password)

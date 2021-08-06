@@ -17,7 +17,7 @@ import java.util.UUID;
 public class ExceptionsHandler {
 
     @ExceptionHandler({NotFoundException.class})
-    public ResponseEntity<?> handleNotFoundException(NotFoundException ex) {
+    public ResponseEntity<?> handleNotFoundException(final NotFoundException ex) {
         log.debug("Not Found error: " + ex.getMessage());
 
         var errorDTO = ErrorDTO.builder()
@@ -29,7 +29,7 @@ public class ExceptionsHandler {
     }
 
     @ExceptionHandler({InvalidDataException.class})
-    public ResponseEntity<?> handleBadRequestException(InvalidDataException ex) {
+    public ResponseEntity<?> handleBadRequestException(final InvalidDataException ex) {
         log.debug("Bad Request error: " + ex.getMessage());
 
         var errorDTO = ErrorDTO.builder()
@@ -41,7 +41,7 @@ public class ExceptionsHandler {
     }
 
     @ExceptionHandler({Exception.class})
-    public ResponseEntity<?> handleInternalServerException(Exception ex) {
+    public ResponseEntity<?> handleInternalServerException(final Exception ex) {
         var errorId = UUID.randomUUID().toString();
 
         log.error("Internal Server error " + errorId, ex);

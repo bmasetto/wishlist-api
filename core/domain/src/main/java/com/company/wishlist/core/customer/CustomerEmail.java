@@ -11,11 +11,11 @@ class CustomerEmail {
 
     private final String value;
 
-    private CustomerEmail(String value) {
+    private CustomerEmail(final String value) {
         this.value = value;
     }
 
-    static CustomerEmail from(String email) {
+    static CustomerEmail from(final String email) {
 
         if (!VALID_EMAIL_REGEX_PATTERN.matcher(email).matches()) {
             throw new InvalidDataException("Email is invalid: " + email);

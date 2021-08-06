@@ -13,12 +13,12 @@ public class ProductRestClientConfig {
     private final RestTemplateResponseErrorHandler restTemplateResponseErrorHandler;
 
     @Autowired
-    public ProductRestClientConfig(RestTemplateResponseErrorHandler restTemplateResponseErrorHandler) {
+    public ProductRestClientConfig(final RestTemplateResponseErrorHandler restTemplateResponseErrorHandler) {
         this.restTemplateResponseErrorHandler = restTemplateResponseErrorHandler;
     }
 
     @Bean
-    RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
+    RestTemplate restTemplate(final RestTemplateBuilder restTemplateBuilder) {
         return restTemplateBuilder.errorHandler(restTemplateResponseErrorHandler).build();
     }
 }

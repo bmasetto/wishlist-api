@@ -15,13 +15,13 @@ public class GetWishlist {
     private final CustomerRepository customerRepository;
 
     @Autowired
-    GetWishlist(@Qualifier("cached") WishlistRepository wishlistRepository,
-                @Qualifier("cached") CustomerRepository customerRepository) {
+    GetWishlist(@Qualifier("cached") final WishlistRepository wishlistRepository,
+                @Qualifier("cached") final CustomerRepository customerRepository) {
         this.wishlistRepository = wishlistRepository;
         this.customerRepository = customerRepository;
     }
 
-    public Wishlist getBy(CustomerId customerId) {
+    public Wishlist getBy(final CustomerId customerId) {
 
         var customer = customerRepository.findBy(customerId)
                 .orElseThrow(() -> new NotFoundException("Customer not found: " + customerId.value()));

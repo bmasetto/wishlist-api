@@ -6,7 +6,7 @@ class CustomerName {
 
     private final String value;
 
-    static CustomerName from(String name) {
+    static CustomerName from(final String name) {
 
         if (name == null || name.trim().isEmpty()) {
             throw new InvalidDataException("Name should not be blank");
@@ -15,7 +15,7 @@ class CustomerName {
         return new CustomerName(name.trim());
     }
 
-    private CustomerName(String value) {
+    private CustomerName(final String value) {
         this.value = value;
     }
 

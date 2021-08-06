@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomerOutputMapper {
 
-    public Customer toDomain(CustomerEntity entity) {
+    public Customer toDomain(final CustomerEntity entity) {
         return Customer.from(
                 CustomerId.from(entity.getId()),
                 entity.getEmail(),
@@ -16,7 +16,7 @@ public class CustomerOutputMapper {
         );
     }
 
-    public CustomerEntity toEntity(Customer customer) {
+    public CustomerEntity toEntity(final Customer customer) {
         return CustomerEntity.builder()
                 .email(customer.email())
                 .name(customer.name())

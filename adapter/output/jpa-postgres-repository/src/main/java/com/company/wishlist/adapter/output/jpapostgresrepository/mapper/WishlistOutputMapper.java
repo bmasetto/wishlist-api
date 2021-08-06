@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.toList;
 @Component
 public class WishlistOutputMapper {
 
-    public List<WishlistEntity> toEntity(Wishlist wishList, CustomerEntity customerEntity) {
+    public List<WishlistEntity> toEntity(final Wishlist wishList, final CustomerEntity customerEntity) {
         return wishList.products().stream()
                 .map(product -> WishlistEntity.builder()
                         .customer(customerEntity)

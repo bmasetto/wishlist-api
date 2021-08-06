@@ -27,13 +27,13 @@ public class ProductRestClient implements ProductRepository {
     private String fooResourceUrl;
 
     @Autowired
-    ProductRestClient(RestTemplate restTemplate, ProductOutputMapper productOutputMapper) {
+    ProductRestClient(final RestTemplate restTemplate, final ProductOutputMapper productOutputMapper) {
         this.restTemplate = restTemplate;
         this.productOutputMapper = productOutputMapper;
     }
 
     @Override
-    public Optional<Product> findBy(ProductId productId) {
+    public Optional<Product> findBy(final ProductId productId) {
         log.debug("Finding product: " + productId.value());
 
         var productDTO = restTemplate

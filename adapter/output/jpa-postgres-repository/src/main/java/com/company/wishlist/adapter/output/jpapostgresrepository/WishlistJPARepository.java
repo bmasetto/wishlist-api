@@ -3,11 +3,11 @@ package com.company.wishlist.adapter.output.jpapostgresrepository;
 import com.company.wishlist.adapter.output.jpapostgresrepository.entity.CustomerEntity;
 import com.company.wishlist.adapter.output.jpapostgresrepository.entity.WishlistEntity;
 import com.company.wishlist.adapter.output.jpapostgresrepository.mapper.WishlistOutputMapper;
-import com.company.wishlist.core.wishlist.Wishlist;
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.product.ProductId;
 import com.company.wishlist.core.repository.ProductRepository;
 import com.company.wishlist.core.repository.WishlistRepository;
+import com.company.wishlist.core.wishlist.Wishlist;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -33,15 +33,17 @@ public class WishlistJPARepository implements WishlistRepository {
     private final ProductRepository productRepository;
 
     @Autowired
-    WishlistJPARepository(EntityManager entityManager, WishlistOutputMapper wishlistOutputMapper,
-                          @Qualifier("cached") ProductRepository productRepository) {
+    WishlistJPARepository(
+            final EntityManager entityManager,
+            final WishlistOutputMapper wishlistOutputMapper,
+            @Qualifier("cached") final ProductRepository productRepository) {
         this.entityManager = entityManager;
         this.wishlistOutputMapper = wishlistOutputMapper;
         this.productRepository = productRepository;
     }
 
     @Override
-    public Wishlist getBy(Customer customer) {
+    public Wishlist getBy(final Customer customer) {
         log.debug("Finding wishlist: " + customer.id());
 
         var wishlistEntities = entityManager
@@ -63,7 +65,7 @@ public class WishlistJPARepository implements WishlistRepository {
 
     @Override
     @Transactional
-    public void save(Wishlist wishList) {
+    public void save(final Wishlist wishList) {
         log.debug("Saving wishlist: " + wishList.customer().id());
 
         var value = wishList.customer().id();

@@ -11,11 +11,11 @@ public class WishListInputMapper {
     private final ProductInputMapper productInputMapper;
 
     @Autowired
-    public WishListInputMapper(ProductInputMapper productInputMapper) {
+    public WishListInputMapper(final ProductInputMapper productInputMapper) {
         this.productInputMapper = productInputMapper;
     }
 
-    public WishlistDTO toDTO(Wishlist wishList) {
+    public WishlistDTO toDTO(final Wishlist wishList) {
         return WishlistDTO.builder()
                 .products(productInputMapper.toDTO(wishList.products()))
                 .build();

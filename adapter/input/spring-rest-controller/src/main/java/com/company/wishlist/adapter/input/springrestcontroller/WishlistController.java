@@ -38,9 +38,12 @@ public class WishlistController {
     private final ProductInputMapper productInputMapper;
 
     @Autowired
-    WishlistController(AddProductsToWishList addProductsToWishList, WishListInputMapper wishListInputMapper,
-                       GetWishlist getWishlist, DeleteProductsFromWishList deleteProductFromWishlist,
-                       ProductInputMapper productInputMapper) {
+    WishlistController(
+            final AddProductsToWishList addProductsToWishList,
+            final WishListInputMapper wishListInputMapper,
+            final GetWishlist getWishlist,
+            final DeleteProductsFromWishList deleteProductFromWishlist,
+            final ProductInputMapper productInputMapper) {
         this.addProductsToWishList = addProductsToWishList;
         this.wishListInputMapper = wishListInputMapper;
         this.getWishlist = getWishlist;
@@ -67,8 +70,8 @@ public class WishlistController {
             })
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<WishlistDTO> postProductToWishlist(
-            @Parameter(description = "Customer id", required = true) @PathVariable("customerId") Long customerId,
-            @RequestBody List<IncomingProductDTO> incomingProducts) {
+            @Parameter(description = "Customer id", required = true) @PathVariable("customerId") final Long customerId,
+            @RequestBody final List<IncomingProductDTO> incomingProducts) {
         log.debug("Posting product to wishlist: " + customerId);
 
         var productsIds = productInputMapper.toDomain(incomingProducts);
@@ -94,7 +97,8 @@ public class WishlistController {
     })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<WishlistDTO> getWishlist(
-            @Parameter(description = "Customer id", required = true) @PathVariable("customerId") Long customerId) {
+            @Parameter(description = "Customer id", required = true) @PathVariable("customerId") final Long customerId
+    ) {
         log.debug("Getting wishlist: " + customerId);
 
         var wishList = getWishlist.getBy(CustomerId.from(customerId));
@@ -119,8 +123,8 @@ public class WishlistController {
             })
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<WishlistDTO> deleteProductFromWishlist(
-            @Parameter(description = "Customer id", required = true) @PathVariable("customerId") Long customerId,
-            @RequestBody List<IncomingProductDTO> productsToBeDeleted) {
+            @Parameter(description = "Customer id", required = true) @PathVariable("customerId") final Long customerId,
+            @RequestBody final List<IncomingProductDTO> productsToBeDeleted) {
 
         log.debug("Deleting product from wishlist: " + customerId);
 

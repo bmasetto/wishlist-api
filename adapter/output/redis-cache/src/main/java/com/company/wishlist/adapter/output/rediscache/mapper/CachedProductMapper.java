@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CachedProductMapper {
 
-    public Product toDomain(CachedProductEntity cachedProductEntity) {
+    public Product toDomain(final CachedProductEntity cachedProductEntity) {
         return Product.from(
                 ProductId.from(cachedProductEntity.getId()),
                 cachedProductEntity.getTitle(),
@@ -18,7 +18,7 @@ public class CachedProductMapper {
         );
     }
 
-    public CachedProductEntity toEntity(ProductId productId, Product product) {
+    public CachedProductEntity toEntity(final ProductId productId, final Product product) {
         return CachedProductEntity.builder()
                 .id(productId.value())
                 .title(product.title())

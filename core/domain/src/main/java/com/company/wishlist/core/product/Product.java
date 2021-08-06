@@ -10,7 +10,12 @@ public class Product {
     private final Double price;
     private final Double reviewScore;
 
-    public static Product from(ProductId id, String title, String image, Double price, Double reviewScore) {
+    public static Product from(
+            final ProductId id,
+            final String title,
+            final String image,
+            final Double price,
+            final Double reviewScore) {
         return new Product(id, title, image, price, reviewScore);
     }
 
@@ -34,7 +39,12 @@ public class Product {
         return getReviewScore();
     }
 
-    private Product(ProductId id, String title, String image, Double price, Double reviewScore) {
+    private Product(
+            final ProductId id,
+            final String title,
+            final String image,
+            final Double price,
+            final Double reviewScore) {
         this.id = id;
         this.title = title;
         this.image = image;
@@ -63,7 +73,7 @@ public class Product {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         var product = (Product) o;

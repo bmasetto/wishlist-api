@@ -25,15 +25,17 @@ public class CachedWishlistRepository implements WishlistRepository {
     private final WishlistRedisRepository wishlistRedisRepository;
 
     @Autowired
-    CachedWishlistRepository(WishlistRepository wishlistRepository, CachedWishlistMapper cachedWishlistMapper,
-                             WishlistRedisRepository wishlistRedisRepository) {
+    CachedWishlistRepository(
+            final WishlistRepository wishlistRepository,
+            final CachedWishlistMapper cachedWishlistMapper,
+            final WishlistRedisRepository wishlistRedisRepository) {
         this.wishlistRepository = wishlistRepository;
         this.cachedWishlistMapper = cachedWishlistMapper;
         this.wishlistRedisRepository = wishlistRedisRepository;
     }
 
     @Override
-    public void save(Wishlist wishList) {
+    public void save(final Wishlist wishList) {
         log.debug("Deleting wishlist in cached repository: " + wishList.customer().id());
 
         wishlistRepository.save(wishList);
@@ -41,7 +43,7 @@ public class CachedWishlistRepository implements WishlistRepository {
     }
 
     @Override
-    public Wishlist getBy(Customer customer) {
+    public Wishlist getBy(final Customer customer) {
         log.debug("Finding wishlist in cached repository: " + customer.id());
 
         var cachedWishlistEntity = wishlistRedisRepository.findById(customer.id())
@@ -50,7 +52,7 @@ public class CachedWishlistRepository implements WishlistRepository {
         return cachedWishlistMapper.toDomain(cachedWishlistEntity);
     }
 
-    private Supplier<CachedWishlistEntity> fromRepositoryAndSaveInCache(Customer customer) {
+    private Supplier<CachedWishlistEntity> fromRepositoryAndSaveInCache(final Customer customer) {
         return () -> {
             log.info("Wishlist not found in cached repository: " + customer.id());
 

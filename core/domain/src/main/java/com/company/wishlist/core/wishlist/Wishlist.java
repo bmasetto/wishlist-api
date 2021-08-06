@@ -16,7 +16,7 @@ public class Wishlist {
     private final Customer customer;
     private final Set<Product> products;
 
-    public static Wishlist from(Customer customer, Set<Product> products) {
+    public static Wishlist from(final Customer customer, final Set<Product> products) {
 
         if (customer == null) {
             throw new InvalidDataException("Customer should not be null");
@@ -37,7 +37,7 @@ public class Wishlist {
         return getProducts();
     }
 
-    void add(List<Product> incomingProducts) {
+    void add(final List<Product> incomingProducts) {
 
         var duplicatedIncomingProducts = incomingProducts.stream()
                 .filter(products::contains)
@@ -51,14 +51,14 @@ public class Wishlist {
         products.addAll(incomingProducts);
     }
 
-    void delete(List<ProductId> productsIdsToBeDeleted) {
+    void delete(final List<ProductId> productsIdsToBeDeleted) {
         products.removeIf(product ->
                 productsIdsToBeDeleted.stream()
                         .anyMatch(productToBeDeleted -> productToBeDeleted.equals(product.id()))
         );
     }
 
-    private Wishlist(Customer customer, Set<Product> products) {
+    private Wishlist(final Customer customer, final Set<Product> products) {
         this.customer = customer;
         this.products = products;
     }
@@ -72,7 +72,7 @@ public class Wishlist {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         var wishlist = (Wishlist) o;

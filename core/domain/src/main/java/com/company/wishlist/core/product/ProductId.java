@@ -8,7 +8,7 @@ public class ProductId {
 
     private final String id;
 
-    public static ProductId from(String id) {
+    public static ProductId from(final String id) {
 
         if (id == null || id.trim().isEmpty()) {
             throw new InvalidDataException("Product id should not be null or blank");
@@ -17,7 +17,7 @@ public class ProductId {
         return new ProductId(id);
     }
 
-    private ProductId(String id) {
+    private ProductId(final String id) {
         this.id = id;
     }
 
@@ -26,7 +26,7 @@ public class ProductId {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         var productId = (ProductId) o;

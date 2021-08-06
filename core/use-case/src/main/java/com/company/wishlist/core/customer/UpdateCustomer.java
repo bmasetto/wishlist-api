@@ -11,11 +11,11 @@ public class UpdateCustomer {
 
     private final CustomerRepository customerRepository;
 
-    public UpdateCustomer(@Qualifier("cached") CustomerRepository customerRepository) {
+    public UpdateCustomer(@Qualifier("cached") final CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
-    public Customer update(Customer incomingCustomer) {
+    public Customer update(final Customer incomingCustomer) {
 
         var customer = customerRepository.findBy(incomingCustomer.getId())
                 .orElseThrow(() -> new NotFoundException("Customer not found: " + incomingCustomer.id()));

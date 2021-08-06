@@ -18,13 +18,13 @@ public class DeleteProductsFromWishList {
     private final CustomerRepository customerRepository;
 
     @Autowired
-    DeleteProductsFromWishList(@Qualifier("cached") WishlistRepository wishlistRepository,
-                               @Qualifier("cached") CustomerRepository customerRepository) {
+    DeleteProductsFromWishList(@Qualifier("cached") final WishlistRepository wishlistRepository,
+                               @Qualifier("cached") final CustomerRepository customerRepository) {
         this.wishlistRepository = wishlistRepository;
         this.customerRepository = customerRepository;
     }
 
-    public Wishlist delete(CustomerId customerId, List<ProductId> productsIdsToBeDeleted) {
+    public Wishlist delete(final CustomerId customerId, final List<ProductId> productsIdsToBeDeleted) {
 
         var customer = customerRepository.findBy(customerId)
                 .orElseThrow(() -> new NotFoundException("Customer not found: " + customerId.value()));

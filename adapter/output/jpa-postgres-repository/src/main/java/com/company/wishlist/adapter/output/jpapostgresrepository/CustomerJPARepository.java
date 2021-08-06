@@ -24,14 +24,14 @@ public class CustomerJPARepository implements CustomerRepository {
     private final CustomerOutputMapper customerOutputMapper;
 
     @Autowired
-    CustomerJPARepository(EntityManager entityManager, CustomerOutputMapper customerOutputMapper) {
+    CustomerJPARepository(final EntityManager entityManager, final CustomerOutputMapper customerOutputMapper) {
         this.entityManager = entityManager;
         this.customerOutputMapper = customerOutputMapper;
     }
 
     @Override
     @Transactional
-    public Customer create(Customer customer) {
+    public Customer create(final Customer customer) {
         log.debug("Saving customer");
 
         var customerEntity = customerOutputMapper.toEntity(customer);
@@ -41,7 +41,7 @@ public class CustomerJPARepository implements CustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findBy(CustomerId customerId) {
+    public Optional<Customer> findBy(final CustomerId customerId) {
         log.debug("Finding customer: " + customerId.value());
 
         var entity = entityManager.find(CustomerEntity.class, customerId.value());
@@ -51,7 +51,7 @@ public class CustomerJPARepository implements CustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findByEmail(String email) {
+    public Optional<Customer> findByEmail(final String email) {
         log.debug("Finding customer by email: " + email);
 
         var customerEntity = entityManager
@@ -64,7 +64,7 @@ public class CustomerJPARepository implements CustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findByEmailAndDifferentId(String email, CustomerId id) {
+    public Optional<Customer> findByEmailAndDifferentId(final String email, final CustomerId id) {
         log.debug("Finding customer by email and different id: " + email + id.value());
 
         var customerEntity = entityManager
@@ -79,7 +79,7 @@ public class CustomerJPARepository implements CustomerRepository {
 
     @Override
     @Transactional
-    public void update(Customer customer) {
+    public void update(final Customer customer) {
         log.debug("Updating customer: " + customer.id());
 
         var customerEntity = entityManager.find(CustomerEntity.class, customer.id());
@@ -92,7 +92,7 @@ public class CustomerJPARepository implements CustomerRepository {
 
     @Override
     @Transactional
-    public void delete(Customer customer) {
+    public void delete(final Customer customer) {
         log.debug("Deleting customer: " + customer.id());
 
         var entity = entityManager.find(CustomerEntity.class, customer.id());

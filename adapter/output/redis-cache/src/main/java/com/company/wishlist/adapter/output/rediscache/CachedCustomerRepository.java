@@ -26,21 +26,21 @@ public class CachedCustomerRepository implements CustomerRepository {
     private final CustomerRedisRepository customerRedisRepository;
 
     @Autowired
-    CachedCustomerRepository(CustomerRepository customerRepository,
-                             CachedCustomerMapper cachedCustomerMapper,
-                             CustomerRedisRepository customerRedisRepository) {
+    CachedCustomerRepository(final CustomerRepository customerRepository,
+                             final CachedCustomerMapper cachedCustomerMapper,
+                             final CustomerRedisRepository customerRedisRepository) {
         this.customerRepository = customerRepository;
         this.cachedCustomerMapper = cachedCustomerMapper;
         this.customerRedisRepository = customerRedisRepository;
     }
 
     @Override
-    public Customer create(Customer customer) {
+    public Customer create(final Customer customer) {
         throw new UnsupportedOperationException("Is is not possible to created customer by cached class");
     }
 
     @Override
-    public Optional<Customer> findBy(CustomerId customerId) {
+    public Optional<Customer> findBy(final CustomerId customerId) {
         log.debug("Finding customer in cached repository: " + customerId.value());
 
         var cachedCustomerEntity = customerRedisRepository.findById(customerId.value())
@@ -50,17 +50,17 @@ public class CachedCustomerRepository implements CustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findByEmail(String email) {
+    public Optional<Customer> findByEmail(final String email) {
         return customerRepository.findByEmail(email); //Never cached
     }
 
     @Override
-    public Optional<Customer> findByEmailAndDifferentId(String email, CustomerId id) {
+    public Optional<Customer> findByEmailAndDifferentId(final String email, final CustomerId id) {
         return customerRepository.findByEmailAndDifferentId(email, id); //Never cached
     }
 
     @Override
-    public void update(Customer customer) {
+    public void update(final Customer customer) {
         log.debug("Deleting customer in cached repository: " + customer.id());
 
         customerRepository.update(customer);
@@ -69,7 +69,7 @@ public class CachedCustomerRepository implements CustomerRepository {
     }
 
     @Override
-    public void delete(Customer customer) {
+    public void delete(final Customer customer) {
         log.debug("Deleting customer in cached repository: " + customer.id());
 
         customerRepository.delete(customer);
@@ -77,7 +77,7 @@ public class CachedCustomerRepository implements CustomerRepository {
         customerRedisRepository.deleteById(customer.id());
     }
 
-    private Supplier<CachedCustomerEntity> fromRepositoryAndSaveInCache(CustomerId customerId) {
+    private Supplier<CachedCustomerEntity> fromRepositoryAndSaveInCache(final CustomerId customerId) {
         return () -> {
             log.info("Customer not found in cached repository: " + customerId.value());
 

@@ -33,8 +33,12 @@ public class CustomerController {
     private final CustomerInputMapper customerInputMapper;
 
     @Autowired
-    CustomerController(CustomerInputMapper customerInputMapper, CreateCustomer createCustomer,
-                       GetCustomer getCustomer, UpdateCustomer updateCustomer, DeleteCustomer deleteCustomer) {
+    CustomerController(
+            final CustomerInputMapper customerInputMapper,
+            final CreateCustomer createCustomer,
+            final GetCustomer getCustomer,
+            final UpdateCustomer updateCustomer,
+            final DeleteCustomer deleteCustomer) {
         this.customerInputMapper = customerInputMapper;
         this.createCustomer = createCustomer;
         this.getCustomer = getCustomer;
@@ -54,7 +58,7 @@ public class CustomerController {
             )
     })
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CustomerDTO> postCustomer(@RequestBody IncomingCustomerDTO incomingCustomerDTO) {
+    public ResponseEntity<CustomerDTO> postCustomer(@RequestBody final IncomingCustomerDTO incomingCustomerDTO) {
         log.debug("Posting customer in controller");
 
         var incomingCustomer = customerInputMapper.toDomain(incomingCustomerDTO);
@@ -81,8 +85,7 @@ public class CustomerController {
     })
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CustomerDTO> getCustomer(
-            @Parameter(description = "Customer id", required = true)
-            @PathVariable("id") Long id) {
+            @Parameter(description = "Customer id", required = true) @PathVariable("id") final Long id) {
         log.debug("Getting customer in controller: " + id);
 
         var customer = getCustomer.getBy(CustomerId.from(id));
@@ -105,8 +108,8 @@ public class CustomerController {
     })
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CustomerDTO> putCustomer(
-            @Parameter(description = "Customer id", required = true) @PathVariable("id") Long id,
-            @RequestBody IncomingCustomerDTO incomingCustomerDTO) {
+            @Parameter(description = "Customer id", required = true) @PathVariable("id") final Long id,
+            @RequestBody final IncomingCustomerDTO incomingCustomerDTO) {
         log.debug("Updating customer in controller: " + id);
 
         var incomingCustomer = customerInputMapper.toDomain(id, incomingCustomerDTO);
@@ -128,7 +131,7 @@ public class CustomerController {
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCustomer(
-            @Parameter(description = "Customer id", required = true) @PathVariable("id") Long id) {
+            @Parameter(description = "Customer id", required = true) @PathVariable("id") final Long id) {
         log.debug("Deleting customer in controller: " + id);
 
         deleteCustomer.delete(CustomerId.from(id));

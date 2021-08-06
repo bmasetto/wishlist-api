@@ -25,15 +25,15 @@ public class AddProductsToWishList {
     private final ProductRepository productRepository;
 
     @Autowired
-    AddProductsToWishList(@Qualifier("cached") WishlistRepository wishlistRepository,
-                          @Qualifier("cached") CustomerRepository customerRepository,
-                          ProductRepository productRepository) {
+    AddProductsToWishList(@Qualifier("cached") final WishlistRepository wishlistRepository,
+                          @Qualifier("cached") final CustomerRepository customerRepository,
+                          final ProductRepository productRepository) {
         this.wishlistRepository = wishlistRepository;
         this.customerRepository = customerRepository;
         this.productRepository = productRepository;
     }
 
-    public Wishlist add(CustomerId customerId, List<ProductId> productsIds) {
+    public Wishlist add(final CustomerId customerId, final List<ProductId> productsIds) {
 
         var customer = customerRepository.findBy(customerId)
                 .orElseThrow(() -> new NotFoundException("Customer not found: " + customerId.value()));

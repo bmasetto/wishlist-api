@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomerInputMapper {
 
-    public Customer toDomain(IncomingCustomerDTO incomingCustomerDTO) {
+    public Customer toDomain(final IncomingCustomerDTO incomingCustomerDTO) {
         return toDomain(-1L, incomingCustomerDTO);
     }
 
-    public Customer toDomain(Long id, IncomingCustomerDTO incomingCustomerDTO) {
+    public Customer toDomain(final Long id, final IncomingCustomerDTO incomingCustomerDTO) {
         return Customer.from(
                 CustomerId.from(id),
                 incomingCustomerDTO.getEmail(),
@@ -21,7 +21,7 @@ public class CustomerInputMapper {
         );
     }
 
-    public CustomerDTO toDTO(Customer customer) {
+    public CustomerDTO toDTO(final Customer customer) {
         return CustomerDTO.builder()
                 .id(customer.id())
                 .email(customer.email())

@@ -8,7 +8,7 @@ public class CustomerId {
 
     private final Long id;
 
-    public static CustomerId from(Long id) {
+    public static CustomerId from(final Long id) {
 
         if (id == null) {
             throw new InvalidDataException("Customer id should not be null");
@@ -17,7 +17,7 @@ public class CustomerId {
         return new CustomerId(id);
     }
 
-    private CustomerId(Long id) {
+    private CustomerId(final Long id) {
         this.id = id;
     }
 
@@ -26,7 +26,7 @@ public class CustomerId {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         var that = (CustomerId) o;
