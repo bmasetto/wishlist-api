@@ -1,6 +1,10 @@
 package com.company.wishlist.adapter.input.springrestcontroller;
 
-import com.company.wishlist.adapter.input.springrestcontroller.dto.*;
+import com.company.wishlist.adapter.input.springrestcontroller.dto.CustomerDTO;
+import com.company.wishlist.adapter.input.springrestcontroller.dto.IncomingCustomerDTO;
+import com.company.wishlist.adapter.input.springrestcontroller.dto.IncomingProductDTO;
+import com.company.wishlist.adapter.input.springrestcontroller.dto.ProductDTO;
+import com.company.wishlist.adapter.input.springrestcontroller.dto.WishlistDTO;
 import com.company.wishlist.core.customer.Customer;
 import com.company.wishlist.core.customer.CustomerId;
 import com.company.wishlist.core.product.Product;

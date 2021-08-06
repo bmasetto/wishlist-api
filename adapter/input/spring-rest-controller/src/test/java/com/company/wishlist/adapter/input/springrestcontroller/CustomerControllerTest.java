@@ -1,7 +1,11 @@
 package com.company.wishlist.adapter.input.springrestcontroller;
 
 import com.company.wishlist.adapter.input.springrestcontroller.mapper.CustomerInputMapper;
-import com.company.wishlist.core.customer.*;
+import com.company.wishlist.core.customer.CreateCustomer;
+import com.company.wishlist.core.customer.Customer;
+import com.company.wishlist.core.customer.DeleteCustomer;
+import com.company.wishlist.core.customer.GetCustomer;
+import com.company.wishlist.core.customer.UpdateCustomer;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
