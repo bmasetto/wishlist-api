@@ -2,7 +2,7 @@ package com.company.wishlist.adapter.output.productrestclient.mapper;
 
 import org.junit.jupiter.api.Test;
 
-import static com.company.wishlist.adapter.output.productrestclient.mapper.RestClientOutputTestResources.tvDTO;
+import static com.company.wishlist.adapter.output.productrestclient.RestClientOutputTestResources.tvDTO;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ProductOutputMapperTest {

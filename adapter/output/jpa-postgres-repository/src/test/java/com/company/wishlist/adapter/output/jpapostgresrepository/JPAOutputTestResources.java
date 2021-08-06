@@ -1,4 +1,4 @@
-package com.company.wishlist.adapter.output.jpapostgresrepository.mapper;
+package com.company.wishlist.adapter.output.jpapostgresrepository;
 
 import com.company.wishlist.adapter.output.jpapostgresrepository.entity.CustomerEntity;
 import com.company.wishlist.adapter.output.jpapostgresrepository.entity.WishlistEntity;

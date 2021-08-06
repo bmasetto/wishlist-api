@@ -1,4 +1,4 @@
-package com.company.wishlist.adapter.output.productrestclient.mapper;
+package com.company.wishlist.adapter.output.productrestclient;
 
 import com.company.wishlist.adapter.output.productrestclient.dto.ProductDTO;
 
